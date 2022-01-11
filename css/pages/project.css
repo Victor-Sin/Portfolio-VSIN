@@ -1,0 +1,277 @@
+.presentationProject {
+	font-size: var(--titleSize);
+	font-family: var(--titleFont);
+	margin: 1.5em 7.5vw;
+	margin-bottom: 0.5em;
+}
+
+.presentationProject_title {
+	font-size: clamp(34px, 3.5vw, 72px);
+	font-weight: bold;
+	width: 55%;
+}
+
+.presentationProject_pres {
+	margin: 0.5em 0;
+	display: flex;
+	gap: 1em;
+}
+
+.pres_text {
+	font-family: var(--textFont);
+	font-size: var(--textSize);
+	width: 50%;
+	line-height: 1.5;
+}
+
+.pres_text p {
+	margin-bottom: 1em;
+}
+
+.pres_infos {
+	width: 50%;
+	margin-left: auto;
+	display: grid;
+	gap: 0.25em;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.info_cont {
+	display: flex;
+	gap: 2em;
+	font-size: var(--textSize);
+}
+
+.cont_title {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.cont_list {
+	font-size: 0.9em;
+	opacity: 0.5;
+	font-family: var(--textFont);
+}
+
+.list_elt {
+	margin-bottom: 0.5em;
+}
+
+.list_elt a {
+	color: black;
+}
+
+.imageGlobal {
+	width: 100%;
+}
+
+@media only screen and (max-width: 1080px) {
+	.presentationProject {
+		margin-top: 2em;
+	}
+
+	.presentationProject_pres {
+		flex-direction: column;
+	}
+	.presentationProject_title {
+		width: 60%;
+		min-width: 370px;
+	}
+	.pres_text {
+		width: 100%;
+	}
+	.pres_infos {
+		width: 100%;
+		gap: 1em;
+	}
+}
+
+@media only screen and (max-width: 720px) and (orientation: portrait) {
+	.presentationProject {
+		margin-top: 3em;
+	}
+
+	.pres_infos {
+		grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+	}
+
+	.info_cont {
+		flex-direction: column;
+		gap: 1em;
+	}
+}
+
+/* Projet */
+
+main {
+	overflow: hidden;
+}
+
+.logoPres {
+	background-color: rgb(31, 31, 31);
+	width: 50%;
+	height: 100%;
+	padding: 5em;
+	margin: 0 auto;
+}
+
+/* Section */
+.designInfos {
+	margin: 1em 7.5vw;
+	font-size: clamp(34px, 3.5vw, 72px);
+}
+
+.designInfos_contentInfos {
+	display: flex;
+	gap: 3.5em;
+	width: 80%;
+	margin-left: auto;
+}
+
+.contentInfos_title {
+	font-weight: bold;
+	font-family: var(--titleFont);
+	text-transform: uppercase;
+}
+
+.contentInfos_text {
+	line-height: 1.5;
+	font-size: var(--textSize);
+	font-family: var(--textFont);
+	opacity: 0;
+	filter: blur(10px);
+	transform: translateY(0.5em);
+	transition: transform 0.5s ease-out, filter 0.5s ease-out,
+		opacity 1s ease-out;
+}
+
+.pres_linksSite {
+	display: flex;
+	gap: 1.5em;
+}
+
+.linkSite_site {
+	position: relative;
+	color: black;
+	font-weight: bold;
+	padding: 0.1em 0.15em;
+	transition: color 0.15s ease-out;
+}
+
+.linkSite_site:hover {
+	color: #fff0d9;
+}
+
+.linkSite_site::before {
+	position: absolute;
+	content: '';
+	bottom: 0;
+	left: 0;
+	height: 2px;
+	width: 100%;
+	background-color: black;
+	transition: height 0.15s ease-out;
+	z-index: -1;
+}
+
+.linkSite_site:hover::before {
+	height: 100%;
+}
+
+.designInfos.is-visible .contentInfos_text {
+	opacity: 1;
+	filter: blur(0px);
+	transform: translateY(0em);
+}
+
+.contentInfos_text p {
+	margin-bottom: 1em;
+}
+
+.designInfos img {
+	width: 100%;
+}
+
+img {
+	width: 100%;
+}
+
+@media only screen and (max-width: 1080px) {
+	.designInfos_contentInfos {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 720px) and (orientation: portrait) {
+	.designInfos_contentInfos {
+		width: 100%;
+		flex-direction: column;
+		gap: 1em;
+	}
+}
+
+/* actions */
+
+.actions {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	font-size: var(--titleSize);
+	margin: 1em 7.5vw;
+}
+
+.actions_next,
+.actions_previous {
+	display: flex;
+	align-items: center;
+	width: 25%;
+	font-size: 0.25em;
+	color: black;
+	font-family: var(--titleFont);
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-left: auto;
+}
+
+.actions_previous {
+	flex-direction: row-reverse;
+	margin-left: 0;
+}
+
+.actions_next:hover img {
+	animation: pingPong 0.5s both infinite alternate ease-in-out;
+}
+
+.actions_previous:hover img {
+	animation: pingPongBis 0.5s both infinite alternate ease-in-out;
+}
+
+.actions_next img,
+.actions_previous img {
+	width: 2em;
+	margin-left: 1em;
+	transition: transform 0.5s;
+}
+
+.actions_previous img {
+	margin-right: 1em;
+
+	transform: scale(-1);
+}
+
+@keyframes pingPong {
+	from {
+		transform: translateX(0em);
+	}
+	to {
+		transform: translateX(0.25em);
+	}
+}
+@keyframes pingPongBis {
+	from {
+		transform: translateX(0em) scale(-1);
+	}
+	to {
+		transform: translateX(-0.25em) scale(-1);
+	}
+}
