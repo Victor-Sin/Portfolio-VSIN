@@ -232,10 +232,39 @@
 	margin-bottom: 0.75em;
 }
 
+.contactAbout_title span {
+	display: block;
+	margin-bottom: 0.15em;
+}
+
 .contactAbout_title a {
+	position: relative;
 	color: black;
 	text-decoration: none;
-	border-bottom: clamp(2px, 2vw, 5px) solid black;
+	padding: 0 0.05em;
+	padding-top: 0.25em;
+	margin-left: -0.05em;
+	transition: color 0.15s;
+}
+
+.contactAbout_title a:hover {
+	color: #fff0d9;
+}
+
+.contactAbout_title a::before {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	content: '';
+	height: clamp(2px, 1vw, 5px);
+	width: 100%;
+	background-color: black;
+	transition: height 0.25s;
+	z-index: -1;
+}
+
+.contactAbout_title a:hover::before {
+	height: 100%;
 }
 
 .contactAbout_infos {
@@ -272,10 +301,54 @@
 }
 
 .infos_addr a {
+	position: relative;
 	font-size: 2em;
 	color: black;
 	text-decoration: none;
 	font-weight: bold;
+	padding: 0 0.15em;
+	padding-top: 0.15em;
+}
+
+.infos_addr a:hover {
+	color: #fff0d9;
+}
+
+.infos_addr a::before {
+	position: absolute;
+	content: '';
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 0%;
+	background: black;
+	z-index: -1;
+}
+
+.infos_addr a:hover::before {
+	right: auto;
+	left: 0;
+	width: 100%;
+}
+
+.cont_cv {
+	display: inline-block;
+	margin-top: 1em;
+	padding: 0.75em 0.5em;
+	font-weight: bold;
+	color: #fff0d9;
+	background: rgb(0, 0, 0);
+	line-height: 1;
+	text-transform: uppercase;
+	transition: background 0.25s, color 0.25s;
+}
+
+.cont_cv:hover {
+	background: var(--colorMain);
+}
+
+.cont_cv span {
+	display: block;
 }
 
 @media only screen and (max-width: 720px) and (orientation: portrait) {

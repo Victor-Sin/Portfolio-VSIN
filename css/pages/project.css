@@ -11,6 +11,11 @@
 	width: 55%;
 }
 
+.presentationProject_title a {
+	color: black;
+	text-decoration: underline;
+}
+
 .presentationProject_pres {
 	margin: 0.5em 0;
 	display: flex;
@@ -90,7 +95,10 @@
 	.presentationProject {
 		margin-top: 3em;
 	}
-
+	.presentationProject_title {
+		width: 100%;
+		min-width: 300px;
+	}
 	.pres_infos {
 		grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
 	}

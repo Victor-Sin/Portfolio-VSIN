@@ -196,20 +196,22 @@
 
 @media only screen and (max-width: 500px) and (orientation: portrait) {
 	.herobanner_illus {
-		bottom: 27.5vh !important;
-		left: 20.5vw;
+		bottom: 12.5vh !important;
+		left: 17.5vw;
 	}
 }
 
 /* Banners */
 
 .banners {
+	position: relative;
 	margin-top: 5vh;
 	width: 100vw;
 	min-height: 5em;
 	overflow-y: visible;
 	overflow-x: visible;
 	font-size: clamp(36px, 5vw, 72px);
+	z-index: 2;
 }
 
 .banners_banner {
@@ -612,6 +614,31 @@
 .contact_infos a,
 .bottom_links a,
 .bottom_more a {
+	position: relative;
 	color: black;
 	text-decoration: none;
+}
+
+.contact_infos a {
+	display: inline-block;
+	padding: 0 0.15em;
+	padding-top: 0.15em;
+}
+
+.contact_infos a:hover {
+	color: #fff0d9;
+}
+
+.contact_infos a::after {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.contact_infos a:hover::after {
+	background: black;
 }
